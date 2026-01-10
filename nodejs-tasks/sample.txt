@@ -1,0 +1,5 @@
+Hello from Node.js!
+This is a sample file created using fs module.
+Date: 1/10/2026, 12:49:43 PM
+
+This line was appended later.

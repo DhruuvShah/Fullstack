@@ -10,7 +10,7 @@ const FolderStructure = () => {
             marginBottom: "20px",
           }}
         >
-          <h2 style={{ color: "#c2185b", marginTop: 0 }}>
+          <h2 style={{ color: "#c2185b", marginTop: 0, textAlign: "center" }}>
             Task 2: Folder Structure
           </h2>
           <pre

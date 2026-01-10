@@ -15,7 +15,7 @@ const StyledCard = () => {
         boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
       }}
     >
-      <h2 style={{ color: "#6a1b9a", marginTop: 0 }}>
+      <h2 style={{ color: "#6a1b9a", marginTop: 0, textAlign: "center" }}>
         Task 3: Inline Styling & Attributes
       </h2>
 

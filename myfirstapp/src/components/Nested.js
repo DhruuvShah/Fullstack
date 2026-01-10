@@ -9,7 +9,7 @@ const NestedComponent = () => {
       }}
     >
       {/* This is a comment inside JSX */}
-      <h2 style={{ color: "#e65100", marginTop: 0 }}>
+      <h2 style={{ color: "#e65100", marginTop: 0, textAlign: "center" }}>
         Task 4: Nested Elements Example
       </h2>
 

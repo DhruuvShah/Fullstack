@@ -12,7 +12,7 @@ const Greet = () => {
           marginBottom: "20px",
         }}
       >
-        <h2 style={{ color: "#2e7d32", marginTop: 0, textAlign: "left" }}>
+        <h2 style={{ color: "#2e7d32", marginTop: 0, textAlign: "center" }}>
           Task 1: First React Component
         </h2>
         <h1
