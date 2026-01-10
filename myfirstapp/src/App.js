@@ -17,13 +17,14 @@ import HttpServerTask from "./components/Http-Server-Task";
 import UrlQueryTask from "./components/Url-Query-Task";
 import CustomModuleTask from "./components/Custom-Module-Task"; 
 import NodemonTask from "./components/Nodemon-Task";                                                
-
+import Navbar from './components/Navbar';
 
 // Create ThemeContext here - OUTSIDE the App component
 export const ThemeContext = createContext();
 
 function App() {
   const [theme, setTheme] = useState("light");
+  const [activeUnit, setActiveUnit] = useState("unit1");
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -49,94 +50,117 @@ function App() {
             boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
           }}
         >
-          <h1 style={{ color: "#333", textAlign: "center" }}>
-            Unit - 1 ReactJS – Basics
-          </h1>
-          {/* Task 1: Hello World */}
-          <Greet />
+          {/* Add Navbar at the top */}
+          <Navbar activeUnit={activeUnit} setActiveUnit={setActiveUnit} />
 
-          {/* Task 2: Folder Structure */}
-          <FolderStructure />
+          {/* Unit 1 Section */}
+          {activeUnit === "unit1" && (
+            <div>
+              <h1 style={{ color: "#333", textAlign: "center" }}>
+                Unit - 1 ReactJS Basics
+              </h1>
+              {/* Task 1: Hello World */}
+              <Greet />
 
-          {/* Task 3: Inline Styling */}
-          <StyledCard />
+              {/* Task 2: Folder Structure */}
+              <FolderStructure />
 
-          {/* Task 4: Comments and Nested Elements */}
-          <NestedComponent />
+              {/* Task 3: Inline Styling */}
+              <StyledCard />
 
-          {/* Task 5: Props Display */}
-          <div
-            style={{
-              padding: "20px",
-              backgroundColor: "#e0f2f1",
-              borderRadius: "8px",
-              marginBottom: "20px",
-            }}
-          >
-            <h2 style={{ color: "#00695c", marginTop: 0, textAlign: "center" }}>
-              Task 5: Functional Components with Props
-            </h2>
-            <Props name="John Doe" role="Frontend Developer" color="#b2dfdb" />
-            <Props name="Jane Smith" role="UI/UX Designer" color="#80cbc4" />
-            <Props
-              name="Mike Johnson"
-              role="Full Stack Developer"
-              color="#4db6ac"
-            />
-          </div>
-          <h1 style={{ color: "#333", textAlign: "center" }}>
-            Unit - 2 ReactJS – Advance
-          </h1>
+              {/* Task 4: Comments and Nested Elements */}
+              <NestedComponent />
 
-          {/* Task 1: Counter App */}
-          <Counter />
+              {/* Task 5: Props Display */}
+              <div
+                style={{
+                  padding: "20px",
+                  backgroundColor: "#e0f2f1",
+                  borderRadius: "8px",
+                  marginBottom: "20px",
+                }}
+              >
+                <h2 style={{ color: "#00695c", marginTop: 0, textAlign: "center" }}>
+                  Task 5: Functional Components with Props
+                </h2>
+                <Props name="John Doe" role="Frontend Developer" color="#b2dfdb" />
+                <Props name="Jane Smith" role="UI/UX Designer" color="#80cbc4" />
+                <Props
+                  name="Mike Johnson"
+                  role="Full Stack Developer"
+                  color="#4db6ac"
+                />
+              </div>
+            </div>
+          )}
 
-          {/* Task 2: Digital Clock */}
-          <DigitalClock />
+          {/* Unit 2 Section */}
+          {activeUnit === "unit2" && (
+            <div>
+              <h1 style={{ color: "#333", textAlign: "center" }}>
+                Unit - 2 ReactJS Advance
+              </h1>
 
-          {/* Task 3: Theme Switcher */}
-          <ThemeSwitcher />
+              {/* Task 1: Counter App */}
+              <Counter />
 
-          {/* Task 4: useReducer Demo */}
-          <ReducerDemo />
+              {/* Task 2: Digital Clock */}
+              <DigitalClock />
 
-          {/* Task 5: Login Form */}
-          <LoginForm />
+              {/* Task 3: Theme Switcher */}
+              <ThemeSwitcher />
 
-          <h1 style={{ color: "#333", textAlign: "center" }}>
-            Unit - 3: Node.js
-          </h1>
-          {/* Task 1: REPL Task */}
-          <ReplTask />
+              {/* Task 4: useReducer Demo */}
+              <ReducerDemo />
 
-          {/* Task 2: Callbacks Task */}
-          <CallbackTask />
+              {/* Task 5: Login Form */}
+              <LoginForm />
+            </div>
+          )}
 
-          {/* Task 3: System Info CLI Task */}
-          <SystemInfoTask />
+          {/* Unit 3 Section */}
+          {activeUnit === "unit3" && (
+            <div>
+              <h1 style={{ color: "#333", textAlign: "center" }}>
+                Unit - 3: Node.js Basic
+              </h1>
+              {/* Task 1: REPL Task */}
+              <ReplTask />
 
-          {/* Task 4: File Operations Task */}
-          <FileOperationsTask />
+              {/* Task 2: Callbacks Task */}
+              <CallbackTask />
 
-          {/* Task 5: HTTP Server Task */}
-          <HttpServerTask />
+              {/* Task 3: System Info CLI Task */}
+              <SystemInfoTask />
 
-          <h1 style={{ color: "#333", textAlign: "center" }}>
-            Unit - 4: Node.js  Intermediate 
-          </h1>
-          
-          {/* Task 1: URL & Querystring Modules */}
-          <UrlQueryTask />
+              {/* Task 4: File Operations Task */}
+              <FileOperationsTask />
 
-          {/* Task 2: Custom Modules (Export & Import) */}
-          <CustomModuleTask />
+              {/* Task 5: HTTP Server Task */}
+              <HttpServerTask />
+            </div>
+          )}
 
-          {/* Task 3: Nodemon for Auto-Reload */}
-          <NodemonTask />
+          {/* Unit 4 Section */}
+          {activeUnit === "unit4" && (
+            <div>
+              <h1 style={{ color: "#333", textAlign: "center" }}>
+                Unit - 4: Node.js Intermediate 
+              </h1>
+              
+              {/* Task 1: URL & Querystring Modules */}
+              <UrlQueryTask />
+
+              {/* Task 2: Custom Modules (Export & Import) */}
+              <CustomModuleTask />
+
+              {/* Task 3: Nodemon for Auto-Reload */}
+              <NodemonTask />
+            </div>
+          )}
         </div>
       </div>
     </ThemeContext.Provider>
-
   );
 }
 
