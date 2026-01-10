@@ -9,6 +9,15 @@ import DigitalClock from "./components/Digital-Clock";
 import ReducerDemo from "./components/Reducer";
 import ThemeSwitcher from "./components/Theme-Switcher";
 import LoginForm from "./components/Login-Form";
+import ReplTask from "./components/Repl-Task";            
+import CallbackTask from "./components/Callback-Task"; 
+import SystemInfoTask from "./components/System-Info-Task"; 
+import FileOperationsTask from "./components/File-Operations-Task";  
+import HttpServerTask from "./components/Http-Server-Task"; 
+import UrlQueryTask from "./components/Url-Query-Task";
+import CustomModuleTask from "./components/Custom-Module-Task"; 
+import NodemonTask from "./components/Nodemon-Task";                                                
+
 
 // Create ThemeContext here - OUTSIDE the App component
 export const ThemeContext = createContext();
@@ -95,11 +104,39 @@ function App() {
           <LoginForm />
 
           <h1 style={{ color: "#333", textAlign: "center" }}>
-            Unit - 3: Node.js{" "}
+            Unit - 3: Node.js
           </h1>
+          {/* Task 1: REPL Task */}
+          <ReplTask />
+
+          {/* Task 2: Callbacks Task */}
+          <CallbackTask />
+
+          {/* Task 3: System Info CLI Task */}
+          <SystemInfoTask />
+
+          {/* Task 4: File Operations Task */}
+          <FileOperationsTask />
+
+          {/* Task 5: HTTP Server Task */}
+          <HttpServerTask />
+
+          <h1 style={{ color: "#333", textAlign: "center" }}>
+            Unit - 4: Node.js  Intermediate 
+          </h1>
+          
+          {/* Task 1: URL & Querystring Modules */}
+          <UrlQueryTask />
+
+          {/* Task 2: Custom Modules (Export & Import) */}
+          <CustomModuleTask />
+
+          {/* Task 3: Nodemon for Auto-Reload */}
+          <NodemonTask />
         </div>
       </div>
     </ThemeContext.Provider>
+
   );
 }
 

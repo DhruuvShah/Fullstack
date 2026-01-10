@@ -1,0 +1,17 @@
+{
+  "name": "nodemon-demo",
+  "version": "1.0.0",
+  "description": "Nodemon demonstration",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "dev:watch": "nodemon app.js --watch ./ --ext js,html,css"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
