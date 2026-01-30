@@ -1,0 +1,316 @@
+/* ===================================
+   ENHANCED NESTED.CSS - List/Grid Component
+   Glassmorphism & Card Layout
+   =================================== */
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  align-items: stretch;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  position: relative;
+  background: transparent;
+}
+
+/* Optional wrapper for centered layout */
+.list-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+/* Individual list items as glass cards */
+.list-item {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-sage));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition-base);
+}
+
+.list-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.list-item:hover::before {
+  transform: scaleX(1);
+}
+
+/* List item header */
+.list-item-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.list-item-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    135deg,
+    rgba(126, 182, 217, 0.2),
+    rgba(168, 197, 181, 0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: var(--transition-base);
+}
+
+.list-item:hover .list-item-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-sage));
+  color: var(--pure-white);
+}
+
+.list-item-title {
+  flex: 1;
+}
+
+.list-item h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.3px;
+}
+
+.list-item-subtitle {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+/* List item content */
+.list-item-content {
+  flex: 1;
+  margin-bottom: var(--spacing-md);
+}
+
+.list-item p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* List item footer */
+.list-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--glass-border);
+}
+
+.list-item-meta {
+  display: flex;
+  gap: var(--spacing-sm);
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.list-item-action {
+  padding: 6px 16px;
+  background: rgba(126, 182, 217, 0.1);
+  color: var(--accent-blue);
+  border: 1px solid rgba(126, 182, 217, 0.2);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.list-item-action:hover {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-sage));
+  color: var(--pure-white);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Badge/Tag */
+.list-item-badge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  padding: 4px 12px;
+  background: rgba(126, 182, 217, 0.15);
+  color: var(--accent-blue);
+  border-radius: var(--radius-xl);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(126, 182, 217, 0.25);
+}
+
+/* Horizontal list variant */
+.list.horizontal {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.list.horizontal .list-item {
+  min-width: 300px;
+  scroll-snap-align: start;
+}
+
+.list.horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+
+.list.horizontal::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.list.horizontal::-webkit-scrollbar-thumb {
+  background: var(--accent-blue);
+  border-radius: 4px;
+}
+
+/* Compact list variant */
+.list.compact {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.list.compact .list-item {
+  padding: var(--spacing-md);
+}
+
+/* Feature list with alternating colors */
+.list-item.feature-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(126, 182, 217, 0.08),
+    rgba(255, 255, 255, 0.75)
+  );
+}
+
+.list-item.feature-2 {
+  background: linear-gradient(
+    135deg,
+    rgba(168, 197, 181, 0.08),
+    rgba(255, 255, 255, 0.75)
+  );
+}
+
+.list-item.feature-3 {
+  background: linear-gradient(
+    135deg,
+    rgba(240, 184, 168, 0.08),
+    rgba(255, 255, 255, 0.75)
+  );
+}
+
+.list-item.feature-4 {
+  background: linear-gradient(
+    135deg,
+    rgba(201, 184, 224, 0.08),
+    rgba(255, 255, 255, 0.75)
+  );
+}
+
+/* Loading skeleton */
+.list-item.loading {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.5) 25%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.5) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading-shimmer 2s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Empty state */
+.list-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-tertiary);
+}
+
+.list-empty-icon {
+  font-size: 64px;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.3;
+}
+
+.list-empty-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+
+  .list-container {
+    padding: var(--spacing-md);
+  }
+
+  .list.horizontal .list-item {
+    min-width: 280px;
+  }
+
+  .list.compact {
+    grid-template-columns: 1fr;
+  }
+}
