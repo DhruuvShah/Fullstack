@@ -1,40 +1,45 @@
-import Hello from "./Components/Hello";
-import Header from "./Components/Header";
+// ===================================
+// App.js - Main Application Component
+// ===================================
+
+import React from "react";
+import "./App.css";
 import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
-import Nested from "./Components/Nested";
-import Greet from "./Components/Greet";
-import Faculty from "./Components/Faculty";
-import Parent from "./Components/Parent";
+import Header from "./Components/Header";
+import Hello from "./Components/Hello";
 import Counter from "./Components/Counter";
 import Calculator from "./Components/Calculator";
-import "./App.css";
+import Nested from "./Components/Nested";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <div>
-      <div>
-        <Hello />
+    <div className="App">
+      <Navbar />
+
+      <main className="App-content">
         <Header />
-        <Navbar />
+        <Hello />
+
+        <section className="container" style={{ padding: "60px 20px" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+              gap: "40px",
+              maxWidth: "1400px",
+              margin: "0 auto",
+            }}
+          >
+            <Counter />
+            <Calculator />
+          </div>
+        </section>
+
         <Nested />
-        <Greet name="Alice" city="New York" />
-        <Greet name="Bob" city="Los Angeles" />
-        <Faculty
-          name="Dr. Smith"
-          Department="Computer Science"
-          university="MIT"
-        />
-        <Faculty
-          name="Dr. Johnson"
-          Department="Mathematics"
-          university="Stanford"
-        />
-        <Parent name="John" city="Chicago" />
-        <Counter />
-        <Calculator />
-        <Footer />
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }
