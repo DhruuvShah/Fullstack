@@ -1,0 +1,276 @@
+:root {
+  --black: #0f0f0f;
+  --dark-gray: #141414;
+  --gray: #3f3f3f;
+  --light-gray: #b3b3b3;
+  --white: #fff;
+  --error-red: #ff4444;
+  --success-green: #2ecc71;
+  --border-radius: 12px;
+  --input-radius: 8px;
+  --font-size: 16px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--black);
+  font-family: "Geist Sans", sans-serif;
+  color: var(--white);
+  font-size: var(--font-size);
+  min-height: 100vh;
+  /* Changed to block so Nav and Form stack vertically */
+  display: block;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Main Container */
+#root > div,
+body > div {
+  width: 100%;
+  max-width: 600px;
+  /* Added top margin to create space for the sticky/top navbar */
+  margin: 60px auto 40px auto;
+}
+
+/* Form Container */
+form {
+  border: 1px solid var(--gray);
+  background: linear-gradient(0deg, #141414, #242424);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  margin: 40px auto;
+  position: relative;
+  box-shadow: inset 10px 0 10px black;
+}
+
+form::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(180deg, var(--gray), #212121);
+  border-radius: var(--border-radius);
+  z-index: -1;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Form Groups */
+form > div {
+  margin-bottom: 24px;
+}
+
+form > div:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Labels */
+label {
+  display: block;
+  color: var(--light-gray);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
+  border: 1px solid var(--gray);
+  border-radius: var(--input-radius);
+  color: var(--white);
+  font-size: var(--font-size);
+  font-family: inherit;
+  transition: var(--transition);
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="number"]::placeholder {
+  color: #666;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: var(--light-gray);
+  background: linear-gradient(180deg, #222, #111);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 0 3px rgba(179, 179, 179, 0.1);
+}
+
+/* Invalid State */
+input.invalid,
+select.invalid {
+  border-color: var(--error-red);
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Select Dropdown */
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23b3b3b3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 45px;
+}
+
+select option {
+  background: #1a1a1a;
+  color: var(--white);
+}
+
+/* Radio Buttons Container */
+.radio-group,
+form > div > div {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Radio Button Wrapper */
+form > div > div > div {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
+  border: 1px solid var(--gray);
+  border-radius: 500px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+form > div > div > div:hover {
+  background: linear-gradient(180deg, #222, #111);
+  border-color: var(--light-gray);
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--gray);
+  border-radius: 50%;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  flex-shrink: 0;
+}
+
+input[type="radio"]:checked {
+  border-color: var(--white);
+  background: var(--white);
+  box-shadow: inset 0 0 0 3px var(--black);
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(180deg, #f2f2f2, #b3b3b3);
+  color: var(--black);
+  border: none;
+  border-radius: 500px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow:
+    inset 0 2px 7px #fff,
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 32px;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(180deg, #fff, #d4d4d4);
+  transform: translateY(-2px);
+}
+
+/* Error Messages */
+.error {
+  color: var(--error-red);
+  font-size: 13px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Success Message */
+.success-message {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: var(--white);
+  padding: 16px 24px;
+  border-radius: var(--input-radius);
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 600;
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root { --font-size: 15px; }
+  form { padding: 32px 24px; }
+  h2 { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  :root { --font-size: 14px; }
+  body { padding: 10px; }
+  #root > div, body > div { margin: 40px auto 20px auto; }
+  form { padding: 24px 20px; }
+  h2 { font-size: 22px; }
+}
+
+/* Focus Visible for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--light-gray);
+  outline-offset: 2px;
+}
