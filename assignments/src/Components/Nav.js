@@ -1,37 +1,34 @@
 import "./Nav.css";
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const Nav = () => {
-  const location = useLocation();
-
-  const menuItems = [
-    { label: "Theme", path: "/theme" },
-    { label: "Counter", path: "/counter" },
-    { label: "Calculator", path: "/calculator" },
-    { label: "Clock", path: "/clock" },
-    { label: "Reducer", path: "/reducer" },
-    { label: "Login", path: "/login" }
+export default function Nav() {
+  const items = [
+    { name: "Theme", path: "/theme" },
+    { name: "Counter", path: "/counter" },
+    { name: "Clock", path: "/clock" },
+    { name: "Calculator", path: "/calculator" },
+    { name: "Login", path: "/login" },
+    { name: "Reducer", path: "/reducer" },
   ];
 
   return (
-    <div className="nav-wrap">
-      <div className="bubble active"></div>
-      <div className="bubble hover"></div>
+    <div className="nav-container">
+      <div className="nav-wrap">
+        <div className="bubble active"></div>
+        <div className="bubble hover"></div>
 
-      <nav className="nav">
-        {menuItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={location.pathname === item.path ? "active" : ""}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
+        <nav className="nav">
+          {items.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </nav>
+      </div>
     </div>
   );
-};
-
-export default Nav;
+}

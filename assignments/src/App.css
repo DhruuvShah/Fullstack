@@ -1,179 +1,27 @@
+:root {
+  --font-size: 30px;
+  --white: #fff;
+  --black: #0f0f0f;
+}
+
+body {
+  margin: 0;
+  font-family: "Geist Sans", sans-serif;
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .app {
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   padding-bottom: 40px;
 }
 
-.app.dark {
-  background-color: #0f0f0f;
+.main-content {
+  padding-top: 100px;
 }
 
-.app.light {
-  background-color: #f5f5f5;
-}
-
-/* Global light mode overrides for all components */
-.app.light .nav-wrap,
-.app.light .counter,
-.app.light .calc-container,
-.app.light .clock-container,
-.app.light .theme-container {
-  background: linear-gradient(0deg, #f5f5f5, #ffffff);
-  box-shadow: inset -10px 0 10px rgba(0, 0, 0, 0.05);
-  border-color: #d0d0d0;
-}
-
-.app.light .nav-wrap::after,
-.app.light .counter::after,
-.app.light .calc-container::after,
-.app.light .clock-container::after,
-.app.light .theme-container::after {
-  background: linear-gradient(180deg, #e0e0e0, #f0f0f0);
-}
-
-/* Nav light mode - FIX THE OUTLINE ISSUE */
-.app.light .nav-wrap {
-  background: linear-gradient(0deg, #e8e8e8, #f8f8f8);
-  border: 1px solid #c0c0c0;
-}
-
-.app.light .nav a {
-  color: #1a1a1a;
-}
-
-.app.light .nav a.active {
-  color: var(--white);
-}
-
-.app.light .bubble.active {
-  background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
-  box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.3);
-  border: none;
-}
-
-.app.light .bubble.hover {
-  background: linear-gradient(180deg, #e0e0e0, #d0d0d0);
-  box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.1);
-  border: none;
-}
-
-/* Counter, Calculator, Clock, Theme light mode */
-.app.light .counter h2,
-.app.light .calc-container h2,
-.app.light .clock-wrapper h2,
-.app.light .theme-wrapper h2 {
-  color: #0f0f0f;
-}
-
-.app.light .counter-display h1 {
-  color: #0f0f0f;
-}
-
-.app.light .counter-display button,
-.app.light .button-group button:not(:last-child) {
-  background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
-  box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.3);
-  color: var(--white);
-}
-
-.app.light .counter-display button::before,
-.app.light .button-group button:not(:last-child)::before {
-  background: linear-gradient(180deg, #3a3a3a, #2a2a2a);
-}
-
-.app.light .counter-display button:hover,
-.app.light .button-group button:not(:last-child):hover {
-  background: linear-gradient(180deg, #3a3a3a, #2a2a2a);
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
-}
-
-.app.light .reset,
-.app.light .button-group button:last-child {
-  background: linear-gradient(0deg, #f5f5f5, #ffffff);
-  color: #0f0f0f;
-  box-shadow: inset -5px 0 5px rgba(0, 0, 0, 0.05);
-}
-
-.app.light .reset::before,
-.app.light .button-group button:last-child::before {
-  background: linear-gradient(180deg, #e0e0e0, #f0f0f0);
-}
-
-.app.light .reset:hover,
-.app.light .button-group button:last-child:hover {
-  background: linear-gradient(180deg, #e0e0e0, #d0d0d0);
-  box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.1);
-}
-
-/* Input fields light mode */
-.app.light .calc-container input {
-  background: linear-gradient(0deg, #e8e8e8, #f8f8f8);
-  color: #0f0f0f;
-  border-color: #d0d0d0;
-}
-
-.app.light .calc-container input::placeholder {
-  color: #999;
-}
-
-.app.light .calc-container input:focus {
-  border-color: #b0b0b0;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
-}
-
-.app.light .calc-container h3 {
-  background: linear-gradient(0deg, #e8e8e8, #f8f8f8);
-  color: #0f0f0f;
-  border-color: #d0d0d0;
-}
-
-/* Clock light mode */
-.app.light .time-display,
-.app.light .theme-info {
-  background: linear-gradient(0deg, #e8e8e8, #f8f8f8);
-  color: #0f0f0f;
-  border-color: #d0d0d0;
-}
-
-.app.light .date-display {
-  background: linear-gradient(0deg, #e8e8e8, #f8f8f8);
-  color: #4a4a4a;
-  border-color: #d0d0d0;
-}
-
-/* Theme component light mode */
-.app.light .theme-status {
-  color: #0f0f0f;
-}
-
-.app.light .theme-status strong {
-  color: #1a1a1a;
-}
-
-.app.light .theme-description {
-  color: #4a4a4a;
-}
-
-.app.light .toggle-btn {
-  background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
-  box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.3);
-  color: var(--white);
-}
-
-.app.light .toggle-btn::before {
-  background: linear-gradient(180deg, #3a3a3a, #2a2a2a);
-}
-
-.app.light .toggle-btn:hover {
-  background: linear-gradient(180deg, #3a3a3a, #2a2a2a);
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
-}
-
-html {
-  background-color: #0f0f0f;
-  transition: background-color 0.3s ease;
-}
-
-html:has(.app.light) {
-  background-color: #f5f5f5;
-}
+/* Global light mode overrides removed as theme is now local to Theme component */

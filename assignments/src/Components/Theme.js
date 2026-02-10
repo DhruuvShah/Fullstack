@@ -1,14 +1,17 @@
-import { useContext } from "react";
-import { ThemeContext } from "../App";
+import { useState } from "react";
 import "./Theme.css";
 import { PiMoon } from "react-icons/pi";
 import { LiaSunSolid } from "react-icons/lia";
 
 const Theme = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const [theme, setTheme] = useState("dark");
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
   return (
-    <div className="theme-container">
+    <div className={`theme-container ${theme}`}>
       <div className="theme-wrapper">
         <h2>Theme Switcher</h2>
         <div className="theme-info">

@@ -31,8 +31,8 @@ body {
 }
 
 /* Main Container */
-#root > div,
-body > div {
+#root>div,
+body>div {
   width: 100%;
   max-width: 600px;
   /* Added top margin to create space for the sticky/top navbar */
@@ -48,6 +48,7 @@ form {
   margin: 40px auto;
   position: relative;
   box-shadow: inset 10px 0 10px black;
+  overflow: hidden;
 }
 
 form::after {
@@ -56,7 +57,7 @@ form::after {
   position: absolute;
   inset: -4px;
   background: linear-gradient(180deg, var(--gray), #212121);
-  border-radius: var(--border-radius);
+  border-radius: 16px;
   z-index: -1;
 }
 
@@ -68,14 +69,18 @@ h2 {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Form Groups */
-form > div {
+form>div {
   margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
 }
 
-form > div:last-of-type {
+form>div:last-of-type {
   margin-bottom: 0;
 }
 
@@ -105,6 +110,8 @@ select {
   transition: var(--transition);
   outline: none;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
 input[type="text"]::placeholder,
@@ -132,9 +139,19 @@ select.invalid {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
 }
 
 /* Select Dropdown */
@@ -154,15 +171,17 @@ select option {
 
 /* Radio Buttons Container */
 .radio-group,
-form > div > div {
+form>div>div {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Radio Button Wrapper */
-form > div > div > div {
+form>div>div>div {
   display: flex;
   align-items: center;
   background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
@@ -174,7 +193,7 @@ form > div > div > div {
   position: relative;
 }
 
-form > div > div > div:hover {
+form>div>div>div:hover {
   background: linear-gradient(180deg, #222, #111);
   border-color: var(--light-gray);
 }
@@ -214,6 +233,8 @@ button[type="submit"] {
     inset 0 2px 7px #fff,
     0 4px 12px rgba(0, 0, 0, 0.3);
   margin-top: 32px;
+  position: relative;
+  z-index: 1;
 }
 
 button[type="submit"]:hover {
@@ -233,8 +254,15 @@ button[type="submit"]:hover {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Success Message */
@@ -247,26 +275,58 @@ button[type="submit"]:hover {
   text-align: center;
   font-weight: 600;
   animation: slideDown 0.4s ease-out;
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  :root { --font-size: 15px; }
-  form { padding: 32px 24px; }
-  h2 { font-size: 24px; }
+  :root {
+    --font-size: 15px;
+  }
+
+  form {
+    padding: 32px 24px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 480px) {
-  :root { --font-size: 14px; }
-  body { padding: 10px; }
-  #root > div, body > div { margin: 40px auto 20px auto; }
-  form { padding: 24px 20px; }
-  h2 { font-size: 22px; }
+  :root {
+    --font-size: 14px;
+  }
+
+  body {
+    padding: 10px;
+  }
+
+  #root>div,
+  body>div {
+    margin: 40px auto 20px auto;
+  }
+
+  form {
+    padding: 24px 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
 }
 
 /* Focus Visible for Accessibility */
