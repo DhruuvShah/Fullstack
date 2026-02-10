@@ -30,7 +30,7 @@ function Calculator() {
   };
 
   const handleDevide = () => {
-    if (parseFloat(num2) == 0) {
+    if (parseFloat(num2) === 0) {
       setResult("Cannot Devide By 0");
     } else {
       const divide = parseFloat(num1) / parseFloat(num2);
