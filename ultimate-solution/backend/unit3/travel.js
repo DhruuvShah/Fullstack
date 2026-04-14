@@ -1,4 +1,4 @@
-const fs_module = require('fs');
+import fs from 'fs';
 
 function date_time() {
   const date = new Date();
@@ -6,7 +6,7 @@ function date_time() {
 }
 
 setInterval(() => {
-  fs_module.appendFile('date_time.txt', date_time() + "\n", (err) => {
+  fs.appendFile('date_time.txt', date_time() + "\n", (err) => {
     if (err) {
       console.log("Error while writing file..!", err);
     } else {

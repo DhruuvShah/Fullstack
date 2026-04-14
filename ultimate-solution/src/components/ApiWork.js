@@ -1,21 +1,26 @@
 import { useState, useEffect } from "react";
 import "../styles/ApiWork.css";
+import { Alert } from "./Alert";
+
 function ApiWork() {
   const [resource, setResource] = useState("posts");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [alertMsg, setAlertMsg] = useState("");
+
   const handleClickPost = () => {
     setResource("posts");
-    alert("Post data Successfully fetched");
+    setAlertMsg("Post data Successfully fetched");
   };
   const handleClickComment = () => {
     setResource("comments");
-    alert("Comment data Successfully fetched");
+    setAlertMsg("Comment data Successfully fetched");
   };
   const handleClickUser = () => {
     setResource("users");
-    alert("User data Successfully fetched");
+    setAlertMsg("User data Successfully fetched");
   };
+
   useEffect(() => {
     setLoading(true);
     fetch(`https://jsonplaceholder.typicode.com/${resource}`).then((response) => response.json()).then((json) => {
@@ -23,12 +28,16 @@ function ApiWork() {
       setLoading(false);
     });
   }, [resource]);
+
   return <div className="apiwork-container">
       <div className="apiwork-buttons">
         <button onClick={handleClickPost} className="apiwork-btn apiwork-btn-blue">Posts</button>
         <button onClick={handleClickComment} className="apiwork-btn apiwork-btn-green">Comments</button>
         <button onClick={handleClickUser} className="apiwork-btn apiwork-btn-yellow">Users</button>
       </div>
+
+      {alertMsg && <Alert message={alertMsg} type="success" duration={3000} />}
+
       <div className="apiwork-content">
         {loading ? <div className="apiwork-skeleton-list">
             <div className="apiwork-skeleton-card">

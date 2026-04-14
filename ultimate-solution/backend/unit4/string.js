@@ -24,9 +24,4 @@ function capitalize(str) {
   return result.trim();
 }
 
-module.exports = {
-  uppercase,
-  lowercase,
-  camelcase,
-  capitalize
-};
+export { uppercase, lowercase, camelcase, capitalize };

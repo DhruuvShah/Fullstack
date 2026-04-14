@@ -1,11 +1,9 @@
-const fs_module = require('fs');
+import fs from 'fs';
 
-fs_module.readFile('welcome.txt', function(err, data) {
+fs.readFile('welcome.txt', 'utf8', (err, data) => {
   if (err) {
-    console.log('Error Occured', err);
+    console.log("Error reading file..!", err);
   } else {
-    console.log('File Read Successfully');
-    console.log('File Data: ', data);
-    console.log('File Data: ', data.toString());
+    console.log("File Content:", data);
   }
 });

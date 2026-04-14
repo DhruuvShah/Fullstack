@@ -1,9 +1,9 @@
-const fs_module = require('fs');
+import fs from 'fs';
 
-fs_module.writeFile('welcome.txt', 'Welcome to Node JS', function(err, data) {
+fs.writeFile('welcome.txt', 'Welcome to Node JS', (err) => {
   if (err) {
-    console.log('Error Occured', err);
+    console.log("Error writing file..!", err);
   } else {
-    console.log('File Created Successfully');
+    console.log("File Created Successfully..!");
   }
 });

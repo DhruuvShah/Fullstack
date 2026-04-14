@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { GlassCard } from "../components/GlassCard";
+import { Alert } from "../components/Alert";
 import { HardDrive, FileText, Calculator, Type, Terminal, Globe, Clock, FileClock } from "lucide-react";
 import { motion } from "motion/react";
+
 function Backend() {
   const [osInfo, setOsInfo] = useState(null);
   const [fileContent, setFileContent] = useState("");
@@ -15,6 +17,12 @@ function Backend() {
   const [timersOutput, setTimersOutput] = useState("");
   const [textIntervalContent, setTextIntervalContent] = useState("");
   const [dateIntervalContent, setDateIntervalContent] = useState("");
+
+  // Per-card alert state
+  const [fsAlert, setFsAlert] = useState({ msg: "", type: "success" });
+  const [textIntervalAlert, setTextIntervalAlert] = useState({ msg: "", type: "success" });
+  const [dateIntervalAlert, setDateIntervalAlert] = useState({ msg: "", type: "success" });
+
   const fetchOsInfo = async () => {
     const res = await fetch("/api/os");
     setOsInfo(await res.json());
@@ -22,13 +30,13 @@ function Backend() {
   const readFile = async () => {
     const res = await fetch("/api/fs/read");
     const data = await res.json();
-    if (data.error) alert(data.error);
+    if (data.error) setFsAlert({ msg: data.error, type: "error" });
     else setFileContent(data.content);
   };
   const writeFile = async () => {
     const res = await fetch("/api/fs/write", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ content: writeContent }) });
     const data = await res.json();
-    alert(data.message || data.error);
+    setFsAlert({ msg: data.message || data.error, type: data.error ? "error" : "success" });
   };
   const calculateMath = async (operation) => {
     const res = await fetch("/api/math", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ a: Number(mathA), b: Number(mathB), operation }) });
@@ -53,12 +61,12 @@ function Backend() {
   const startTextInterval = async () => {
     const res = await fetch("/api/timers/text/start", { method: "POST" });
     const data = await res.json();
-    alert(data.message);
+    setTextIntervalAlert({ msg: data.message, type: "success" });
   };
   const stopTextInterval = async () => {
     const res = await fetch("/api/timers/text/stop", { method: "POST" });
     const data = await res.json();
-    alert(data.message);
+    setTextIntervalAlert({ msg: data.message, type: "success" });
   };
   const readTextInterval = async () => {
     const res = await fetch("/api/timers/text/read");
@@ -68,22 +76,21 @@ function Backend() {
   const startDateInterval = async () => {
     const res = await fetch("/api/timers/date/start", { method: "POST" });
     const data = await res.json();
-    alert(data.message);
+    setDateIntervalAlert({ msg: data.message, type: "success" });
   };
   const stopDateInterval = async () => {
     const res = await fetch("/api/timers/date/stop", { method: "POST" });
     const data = await res.json();
-    alert(data.message);
+    setDateIntervalAlert({ msg: data.message, type: "success" });
   };
   const readDateInterval = async () => {
     const res = await fetch("/api/timers/date/read");
     const data = await res.json();
     setDateIntervalContent(data.content);
   };
+
   return <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-      {
-    /* Unit 3: Task 1 */
-  }
+      {/* Unit 3: Task 1 */}
       <GlassCard title="Hello Node (REPL/CLI)" icon={Terminal} delay={0.1}>
         <div className="flex flex-col gap-4">
           <motion.button whileTap={{ scale: 0.97 }} onClick={runHello} className="bg-gray-800 text-white rounded-xl px-4 py-2 font-medium">Run hello.js</motion.button>
@@ -91,9 +98,7 @@ function Backend() {
         </div>
       </GlassCard>
 
-      {
-    /* Unit 3: Task 2 (Math Module) */
-  }
+      {/* Unit 3: Task 2 (Math Module) */}
       <GlassCard title="Custom Math Module" icon={Calculator} delay={0.2}>
         <div className="flex flex-col gap-4">
           <div className="flex gap-2">
@@ -108,9 +113,7 @@ function Backend() {
         </div>
       </GlassCard>
 
-      {
-    /* Unit 3: Task 3 (OS Module) */
-  }
+      {/* Unit 3: Task 3 (OS Module) */}
       <GlassCard title="OS Module" icon={HardDrive} delay={0.3}>
         <div className="flex flex-col gap-4">
           <motion.button whileTap={{ scale: 0.97 }} onClick={fetchOsInfo} className="bg-blue-500 text-white rounded-2xl px-4 py-3 font-medium shadow-md shadow-blue-500/20">
@@ -122,22 +125,21 @@ function Backend() {
         </div>
       </GlassCard>
 
-      {
-    /* Unit 3: Task 4 (FS Module) */
-  }
+      {/* Unit 3: Task 4 (FS Module) */}
       <GlassCard title="File System (fs)" icon={FileText} delay={0.4}>
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <input
-    type="text"
-    value={writeContent}
-    onChange={(e) => setWriteContent(e.target.value)}
-    className="bg-white/50 dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-2 focus:outline-none"
-  />
+              type="text"
+              value={writeContent}
+              onChange={(e) => setWriteContent(e.target.value)}
+              className="bg-white/50 dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-2 focus:outline-none"
+            />
             <motion.button whileTap={{ scale: 0.97 }} onClick={writeFile} className="bg-green-500 text-white rounded-xl px-4 py-2 font-medium shadow-md shadow-green-500/20">
               Write to welcome.txt
             </motion.button>
           </div>
+          {fsAlert.msg && <Alert message={fsAlert.msg} type={fsAlert.type} duration={3000} />}
           <div className="h-px w-full bg-black/10 dark:bg-white/10" />
           <div className="flex flex-col gap-2">
             <motion.button whileTap={{ scale: 0.97 }} onClick={readFile} className="bg-purple-500 text-white rounded-xl px-4 py-2 font-medium shadow-md shadow-purple-500/20">
@@ -150,9 +152,7 @@ function Backend() {
         </div>
       </GlassCard>
 
-      {
-    /* Unit 3: Task 5 (HTTP Module) */
-  }
+      {/* Unit 3: Task 5 (HTTP Module) */}
       <GlassCard title="HTTP Server Demo" icon={Globe} delay={0.5}>
         <div className="flex flex-col gap-4">
           <p className="text-sm opacity-80">This app is already running on an Express/HTTP server. Click below to view the raw HTML response from the specific endpoint requested in the PDF.</p>
@@ -160,9 +160,7 @@ function Backend() {
         </div>
       </GlassCard>
 
-      {
-    /* Unit 3: Task 6 (Timers) */
-  }
+      {/* Unit 3: Task 6 (Timers) */}
       <GlassCard title="setTimeout & setInterval" icon={Clock} delay={0.6}>
         <div className="flex flex-col gap-4">
           <motion.button whileTap={{ scale: 0.97 }} onClick={runTimers} className="bg-purple-500 text-white rounded-xl px-4 py-2 font-medium">Simulate Timers</motion.button>
@@ -170,45 +168,41 @@ function Backend() {
         </div>
       </GlassCard>
 
-      {
-    /* Unit 3: Task 7 (Interval Text Append) */
-  }
+      {/* Unit 3: Task 7 (Interval Text Append) */}
       <GlassCard title="Interval: Append Text" icon={FileText} delay={0.7}>
         <div className="flex flex-col gap-4">
           <div className="flex gap-2">
             <motion.button whileTap={{ scale: 0.97 }} onClick={startTextInterval} className="w-1/2 bg-green-500 text-white rounded-xl px-4 py-2 font-medium">Start (5s)</motion.button>
             <motion.button whileTap={{ scale: 0.97 }} onClick={stopTextInterval} className="w-1/2 bg-red-500 text-white rounded-xl px-4 py-2 font-medium">Stop</motion.button>
           </div>
+          {textIntervalAlert.msg && <Alert message={textIntervalAlert.msg} type={textIntervalAlert.type} duration={3000} />}
           <motion.button whileTap={{ scale: 0.97 }} onClick={readTextInterval} className="bg-gray-500 text-white rounded-xl px-4 py-2 font-medium">Read ayushi.txt</motion.button>
           {textIntervalContent && <div className="bg-black/5 dark:bg-white/5 p-3 rounded-xl text-sm font-mono whitespace-pre-wrap h-32 overflow-y-auto">{textIntervalContent}</div>}
         </div>
       </GlassCard>
 
-      {
-    /* Unit 3: Task 8 (Interval Date Append) */
-  }
+      {/* Unit 3: Task 8 (Interval Date Append) */}
       <GlassCard title="Interval: Append Date" icon={FileClock} delay={0.8}>
         <div className="flex flex-col gap-4">
           <div className="flex gap-2">
             <motion.button whileTap={{ scale: 0.97 }} onClick={startDateInterval} className="w-1/2 bg-green-500 text-white rounded-xl px-4 py-2 font-medium">Start (2s)</motion.button>
             <motion.button whileTap={{ scale: 0.97 }} onClick={stopDateInterval} className="w-1/2 bg-red-500 text-white rounded-xl px-4 py-2 font-medium">Stop</motion.button>
           </div>
+          {dateIntervalAlert.msg && <Alert message={dateIntervalAlert.msg} type={dateIntervalAlert.type} duration={3000} />}
           <motion.button whileTap={{ scale: 0.97 }} onClick={readDateInterval} className="bg-gray-500 text-white rounded-xl px-4 py-2 font-medium">Read date_time.txt</motion.button>
           {dateIntervalContent && <div className="bg-black/5 dark:bg-white/5 p-3 rounded-xl text-sm font-mono whitespace-pre-wrap h-32 overflow-y-auto">{dateIntervalContent}</div>}
         </div>
       </GlassCard>
 
-      {
-    /* Unit 4: Task 1 (String Module) */
-  }
+      {/* Unit 4: Task 1 (String Module) */}
       <GlassCard title="Custom String Module" icon={Type} delay={0.9}>
         <div className="flex flex-col gap-4">
           <input
-    type="text"
-    value={stringText}
-    onChange={(e) => setStringText(e.target.value)}
-    className="bg-white/50 dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-2 focus:outline-none"
-  />
+            type="text"
+            value={stringText}
+            onChange={(e) => setStringText(e.target.value)}
+            className="bg-white/50 dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-2 focus:outline-none"
+          />
           <div className="grid grid-cols-2 gap-2">
             <motion.button whileTap={{ scale: 0.97 }} onClick={() => processString("uppercase")} className="bg-indigo-500 text-white rounded-xl px-2 py-2 text-sm font-medium shadow-md shadow-indigo-500/20">Uppercase</motion.button>
             <motion.button whileTap={{ scale: 0.97 }} onClick={() => processString("lowercase")} className="bg-indigo-500 text-white rounded-xl px-2 py-2 text-sm font-medium shadow-md shadow-indigo-500/20">Lowercase</motion.button>
@@ -221,13 +215,11 @@ function Backend() {
         </div>
       </GlassCard>
 
-      {
-    /* Unit 4: Task 2 (Nodemon) */
-  }
+      {/* Unit 4: Task 2 (Nodemon) */}
       <GlassCard title="Nodemon / Live Reload" icon={Terminal} delay={1}>
         <div className="flex flex-col gap-4">
           <p className="text-sm opacity-80 leading-relaxed">
-            In this modern full-stack environment, we use <strong>Vite</strong> and <strong>tsx</strong> which provide the exact same functionality as <code>nodemon</code>. 
+            In this modern full-stack environment, we use <strong>Vite</strong> and <strong>tsx</strong> which provide the exact same functionality as <code>nodemon</code>.
             <br /><br />
             Whenever you save a file, the server automatically restarts and the UI hot-reloads, fulfilling the requirement of automatically reloading a Node.js HTTP server upon saving file changes.
           </p>

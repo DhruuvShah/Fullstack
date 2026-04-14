@@ -1,11 +1,7 @@
-const fs_module = require('fs');
+setTimeout(() => {
+  console.log("This message appears after 3 seconds");
+}, 3000);
 
 setInterval(() => {
-  fs_module.appendFile('ayushi.txt', 'Hello Good Morning..!\n', (err) => {
-    if (err) {
-      console.log("Error while writing file..!", err);
-    } else {
-      console.log("Data added into file..!");
-    }
-  });
-}, 5000);
+  console.log("This message repeats every 2 seconds");
+}, 2000);

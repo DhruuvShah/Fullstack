@@ -1,9 +1,11 @@
-const local_http = require('http');
+import http from 'http';
 
-local_http.createServer((req, res) => {
-  res.writeHead(200, { "content-type": "text/html" });
-  res.write(`<h1>Ayushi Sathwara</h1><p>Welcome to Local Node Server</p>`);
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>Ayushi Sathwara</h1><p>Welcome to Local Node Server</p>');
   res.end();
-}).listen(8000).addListener("listening", () => {
-  console.log("Server is running at port 8000");
+});
+
+server.listen(8080, () => {
+  console.log("Server is running on http://localhost:8080");
 });

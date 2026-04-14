@@ -4,13 +4,11 @@ import os from "os";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { createRequire } from "module";
 import { exec } from "child_process";
+import { add, product } from "./backend/unit3/Index.js";
+import { uppercase, lowercase, camelcase, capitalize } from "./backend/unit4/string.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const require2 = createRequire(import.meta.url);
-const mathModule = require2("./backend/unit3/Index.js");
-const stringModule = require2("./backend/unit4/string.js");
 async function startServer() {
   const app = express();
   const PORT = 3e3;
@@ -44,8 +42,8 @@ async function startServer() {
   });
   app.post("/api/math", (req, res) => {
     const { a, b, operation } = req.body;
-    if (operation === "add") res.json({ result: mathModule.add(a, b) });
-    else if (operation === "product") res.json({ result: mathModule.product(a, b) });
+    if (operation === "add") res.json({ result: add(a, b) });
+    else if (operation === "product") res.json({ result: product(a, b) });
     else res.status(400).json({ error: "Invalid operation" });
   });
   app.post("/api/string", (req, res) => {
@@ -53,16 +51,16 @@ async function startServer() {
     let result = "";
     switch (operation) {
       case "uppercase":
-        result = stringModule.uppercase(text);
+        result = uppercase(text);
         break;
       case "lowercase":
-        result = stringModule.lowercase(text);
+        result = lowercase(text);
         break;
       case "camelcase":
-        result = stringModule.camelcase(text);
+        result = camelcase(text);
         break;
       case "capitalize":
-        result = stringModule.capitalize(text);
+        result = capitalize(text);
         break;
       default:
         return res.status(400).json({ error: "Invalid operation" });
