@@ -1,0 +1,29 @@
+@reference "../index.css";
+
+.glasscard-container {
+  @apply relative overflow-hidden rounded-[2rem] border border-white/60 dark:border-white/10 bg-white/50 dark:bg-[#1c1c1e]/50 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_16px_48px_rgba(0,0,0,0.4)];
+}
+
+.glasscard-reflection {
+  @apply absolute inset-0 rounded-[2rem] pointer-events-none border border-white/40 dark:border-white/5 mix-blend-overlay;
+}
+
+.glasscard-content {
+  @apply relative z-10 p-6 sm:p-8;
+}
+
+.glasscard-header {
+  @apply flex items-center gap-3 mb-6 pb-4 border-b border-black/5 dark:border-white/10;
+}
+
+.glasscard-icon-wrapper {
+  @apply p-2.5 bg-black/5 dark:bg-white/10 rounded-2xl text-blue-500 dark:text-blue-400;
+}
+
+.glasscard-title {
+  @apply text-xl font-semibold tracking-tight text-black/90 dark:text-white/90;
+}
+
+.glasscard-body {
+  @apply text-black/80 dark:text-white/80;
+}

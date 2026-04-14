@@ -1,0 +1,37 @@
+@reference "../index.css";
+
+.contextdemo-container {
+  @apply flex flex-col gap-4 w-full;
+}
+
+.contextdemo-card {
+  @apply p-4 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-2xl;
+}
+
+.contextdemo-card-flex {
+  @apply p-4 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-2xl flex justify-between items-center;
+}
+
+.contextdemo-title-blue {
+  @apply font-semibold text-blue-500 mb-2;
+}
+
+.contextdemo-title-green {
+  @apply font-semibold text-green-500 mb-2;
+}
+
+.contextdemo-title-purple {
+  @apply font-semibold text-purple-500 mb-1;
+}
+
+.contextdemo-text {
+  @apply text-sm;
+}
+
+.contextdemo-text-muted {
+  @apply text-sm opacity-70;
+}
+
+.contextdemo-sum {
+  @apply text-2xl font-bold;
+}

@@ -1,0 +1,61 @@
+@reference "../index.css";
+
+.layout-container {
+  @apply min-h-screen font-sans selection:bg-blue-500/30;
+}
+
+.layout-bg {
+  @apply fixed inset-0 -z-10 bg-[#f2f2f7] dark:bg-[#000000] transition-colors duration-500 overflow-hidden;
+}
+
+.layout-bg-blob-1 {
+  @apply absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-[#ff2d55]/10 dark:bg-[#ff2d55]/20 blur-[140px] animate-pulse;
+}
+
+.layout-bg-blob-2 {
+  @apply absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#007aff]/10 dark:bg-[#007aff]/20 blur-[140px] animate-pulse;
+}
+
+.layout-bg-blob-3 {
+  @apply absolute top-[30%] left-[50%] w-[50%] h-[50%] rounded-full bg-[#5856d6]/10 dark:bg-[#5856d6]/20 blur-[120px] animate-pulse;
+}
+
+.layout-nav-wrapper {
+  @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-[90vw] sm:max-w-max;
+}
+
+.layout-nav {
+  @apply flex items-center justify-between sm:justify-center gap-1 sm:gap-2 p-2.5 rounded-full bg-white/70 dark:bg-[#1c1c1e]/70 backdrop-blur-3xl border border-white/40 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] overflow-x-auto;
+}
+
+.layout-nav-brand {
+  @apply px-4 py-2 hidden sm:flex items-center gap-2 text-black/80 dark:text-white/80 font-semibold border-r border-black/10 dark:border-white/10 mr-2;
+}
+
+.layout-nav-item {
+  @apply flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap;
+}
+
+.layout-nav-item-active {
+  @apply bg-black/10 dark:bg-white/15 text-black dark:text-white shadow-sm;
+}
+
+.layout-nav-item-inactive {
+  @apply text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white;
+}
+
+.layout-nav-divider {
+  @apply w-px h-6 bg-black/10 dark:bg-white/10 mx-2 hidden sm:block;
+}
+
+.layout-nav-theme-btn {
+  @apply p-2 rounded-full text-black/60 dark:text-white/60 hover:bg-black/10 dark:hover:bg-white/15 hover:text-black dark:hover:text-white transition-all duration-300 shrink-0;
+}
+
+.layout-main {
+  @apply pt-32 pb-20 px-6 max-w-7xl mx-auto;
+}
+
+.layout-footer {
+  @apply py-8 text-center text-sm text-black/40 dark:text-white/40;
+}

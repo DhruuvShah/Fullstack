@@ -1,0 +1,29 @@
+@reference "../index.css";
+
+.reducerdemo-container {
+  @apply flex flex-col gap-4 w-full;
+}
+
+.reducerdemo-input {
+  @apply bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all;
+}
+
+.reducerdemo-btn {
+  @apply bg-blue-500 hover:bg-blue-600 text-white rounded-xl px-4 py-2 font-medium transition-colors;
+}
+
+.reducerdemo-card {
+  @apply p-4 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl mt-2;
+}
+
+.reducerdemo-text {
+  @apply text-lg;
+}
+
+.reducerdemo-name {
+  @apply font-semibold text-blue-500;
+}
+
+.reducerdemo-age {
+  @apply font-semibold text-purple-500;
+}

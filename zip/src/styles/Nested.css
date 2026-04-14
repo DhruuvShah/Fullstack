@@ -1,0 +1,21 @@
+@reference "../index.css";
+
+.nested-container {
+  @apply flex flex-col gap-4 w-full;
+}
+
+.nested-title-blue {
+  @apply font-semibold mb-2 text-blue-500;
+}
+
+.nested-title-purple {
+  @apply font-semibold mb-2 text-purple-500;
+}
+
+.nested-list-decimal {
+  @apply list-decimal list-inside space-y-1 ml-2;
+}
+
+.nested-list-disc {
+  @apply list-disc list-inside space-y-1 ml-2;
+}

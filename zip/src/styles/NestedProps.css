@@ -1,0 +1,13 @@
+@reference "../index.css";
+
+.nestedprops-child {
+  @apply p-3 bg-white/50 dark:bg-black/20 rounded-xl mt-2 text-sm shadow-sm;
+}
+
+.nestedprops-child-border {
+  @apply p-3 bg-white/50 dark:bg-black/20 rounded-xl mt-2 border border-black/5 dark:border-white/5 text-sm shadow-sm;
+}
+
+.nestedprops-parent {
+  @apply flex flex-col gap-2 w-full p-4 rounded-2xl bg-white/50 dark:bg-black/20 border border-black/5 dark:border-white/5 shadow-inner;
+}

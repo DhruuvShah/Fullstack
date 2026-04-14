@@ -1,0 +1,33 @@
+@reference "../index.css";
+
+.calc-container {
+  @apply flex flex-col gap-4 max-w-[280px] mx-auto bg-black dark:bg-[#1c1c1e] p-5 rounded-[2.5rem] shadow-2xl border border-black/10 dark:border-white/10;
+}
+
+.calc-display {
+  @apply w-full bg-transparent border-none p-2 text-right text-5xl font-light tracking-tight text-white focus:outline-none h-24;
+}
+
+.calc-grid {
+  @apply grid grid-cols-4 gap-3;
+}
+
+.calc-btn {
+  @apply flex items-center justify-center text-2xl font-normal rounded-full aspect-square transition-colors;
+}
+
+.calc-btn-wide {
+  @apply col-span-2 aspect-auto px-6 justify-start;
+}
+
+.calc-btn-operator {
+  @apply bg-[#FF9F0A] text-white;
+}
+
+.calc-btn-action {
+  @apply bg-[#A5A5A5] text-black;
+}
+
+.calc-btn-number {
+  @apply bg-[#333333] text-white;
+}

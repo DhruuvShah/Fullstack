@@ -1,0 +1,41 @@
+@reference "../index.css";
+
+.navbar-container {
+  @apply flex flex-col gap-3 w-full;
+}
+
+.navbar-nav {
+  @apply bg-white/40 dark:bg-black/40 backdrop-blur-xl text-black/80 dark:text-white/80 py-4 px-8 flex justify-between items-center rounded-full w-full border border-black/10 dark:border-white/10 shadow-sm;
+}
+
+.navbar-brand {
+  @apply font-bold text-xl tracking-tight;
+}
+
+.navbar-list {
+  @apply flex list-none justify-end gap-6 m-0 p-0 text-sm font-medium;
+}
+
+.navbar-item {
+  @apply cursor-pointer transition-colors;
+}
+
+.navbar-item-active {
+  @apply text-blue-500;
+}
+
+.navbar-item-inactive {
+  @apply hover:text-blue-500;
+}
+
+.navbar-item-hidden-sm {
+  @apply hidden sm:block;
+}
+
+.navbar-indicator {
+  @apply text-center text-xs font-medium text-black/50 dark:text-white/50 bg-black/5 dark:bg-white/5 py-1.5 px-4 rounded-full self-center border border-black/5 dark:border-white/5;
+}
+
+.navbar-indicator-active {
+  @apply text-blue-500;
+}

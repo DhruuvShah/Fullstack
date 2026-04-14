@@ -1,0 +1,5 @@
+@reference "../index.css";
+
+.inlinestyle-container {
+  @apply flex flex-col gap-4 w-full;
+}

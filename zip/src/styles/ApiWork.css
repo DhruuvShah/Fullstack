@@ -1,0 +1,65 @@
+@reference "../index.css";
+
+.apiwork-container {
+  @apply flex flex-col gap-4 w-full;
+}
+
+.apiwork-buttons {
+  @apply flex flex-wrap gap-2;
+}
+
+.apiwork-btn {
+  @apply text-white px-4 py-2 rounded-full text-sm font-medium transition-colors;
+}
+
+.apiwork-btn-blue {
+  @apply bg-blue-500 hover:bg-blue-600;
+}
+
+.apiwork-btn-green {
+  @apply bg-green-500 hover:bg-green-600;
+}
+
+.apiwork-btn-yellow {
+  @apply bg-yellow-500 hover:bg-yellow-600;
+}
+
+.apiwork-content {
+  @apply bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-4 rounded-2xl h-48 overflow-y-auto;
+}
+
+.apiwork-skeleton-list {
+  @apply flex flex-col gap-3;
+}
+
+.apiwork-skeleton-card {
+  @apply p-3 bg-white/50 dark:bg-black/20 rounded-xl border border-black/5 dark:border-white/5 animate-pulse;
+}
+
+.apiwork-skeleton-title {
+  @apply h-4 bg-black/10 dark:bg-white/10 rounded w-3/4 mb-2;
+}
+
+.apiwork-skeleton-body {
+  @apply h-3 bg-black/10 dark:bg-white/10 rounded w-full mb-1;
+}
+
+.apiwork-skeleton-body-short {
+  @apply h-3 bg-black/10 dark:bg-white/10 rounded w-5/6;
+}
+
+.apiwork-data-list {
+  @apply flex flex-col gap-3;
+}
+
+.apiwork-data-card {
+  @apply p-3 bg-white/50 dark:bg-black/20 rounded-xl border border-black/5 dark:border-white/5;
+}
+
+.apiwork-data-title {
+  @apply font-semibold text-sm mb-1 text-black/90 dark:text-white/90 capitalize;
+}
+
+.apiwork-data-body {
+  @apply text-xs text-black/70 dark:text-white/70 line-clamp-2;
+}

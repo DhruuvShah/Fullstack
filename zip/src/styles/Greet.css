@@ -1,0 +1,13 @@
+@reference "../index.css";
+
+.greet-container {
+  @apply flex flex-col gap-2 w-full;
+}
+
+.greet-title {
+  @apply text-lg;
+}
+
+.greet-name {
+  @apply font-semibold text-blue-500;
+}
