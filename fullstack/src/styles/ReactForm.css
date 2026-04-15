@@ -1,0 +1,45 @@
+@reference "../index.css";
+
+.reactform-container {
+  @apply flex flex-col gap-4 w-full;
+}
+
+.reactform-title {
+  @apply font-semibold text-lg px-2;
+}
+
+.reactform-card {
+  @apply flex flex-col gap-3 bg-white/50 dark:bg-black/20 p-2 rounded-3xl border border-black/5 dark:border-white/5 shadow-inner;
+}
+
+.reactform-field {
+  @apply flex flex-col gap-1 px-3 pt-2;
+}
+
+.reactform-field-bottom {
+  @apply flex flex-col gap-1 px-3 pb-2;
+}
+
+.reactform-label {
+  @apply text-xs font-medium text-black/50 dark:text-white/50 uppercase tracking-wider;
+}
+
+.reactform-input {
+  @apply bg-transparent border-none py-2 focus:outline-none text-black dark:text-white;
+}
+
+.reactform-divider {
+  @apply h-px w-full bg-black/5 dark:bg-white/5;
+}
+
+.reactform-submit {
+  @apply bg-[#007aff] text-white rounded-2xl px-4 py-3.5 mt-2 font-medium shadow-md shadow-blue-500/20;
+}
+
+.reactform-success {
+  @apply overflow-hidden flex justify-center;
+}
+
+.reactform-success-content {
+  @apply flex items-center gap-3 bg-[#0a150f] border border-[#143a22] text-[#00e676] px-5 py-3 rounded-full text-sm font-medium mb-1 shadow-lg;
+}
