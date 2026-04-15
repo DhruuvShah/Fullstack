@@ -1,4 +1,4 @@
-const local_http = require('http');
+import local_http from 'http';
 
 local_http.createServer((req, res) => {
   res.writeHead(200, { "content-type": "text/html" });

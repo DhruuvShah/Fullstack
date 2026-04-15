@@ -1,4 +1,4 @@
-const fs_module = require('fs');
+import fs_module from 'fs';
 
 function date_time() {
   const date = new Date();

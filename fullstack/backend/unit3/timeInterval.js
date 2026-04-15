@@ -1,4 +1,4 @@
-const fs_module = require('fs');
+import fs_module from 'fs';
 
 setInterval(() => {
   fs_module.appendFile('ayushi.txt', 'Hello Good Morning..!\n', (err) => {

@@ -1,4 +1,4 @@
-const fs_module = require("fs");
+import fs_module from "fs";
 
 fs_module.writeFile("welcome.txt", "Welcome to Node JS", function (err, data) {
   if (err) {

@@ -1,4 +1,4 @@
-const user_module = require('./string');
+import { uppercase, lowercase, camelcase, capitalize } from './string.js';
 
 console.log(user_module.uppercase('hello world'));
 console.log(user_module.lowercase('HELLO WORLD'));

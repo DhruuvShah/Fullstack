@@ -1,3 +1,5 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 const os_module = require('os');
 
 console.log('Operating System Details');
