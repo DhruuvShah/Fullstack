@@ -5,5 +5,5 @@
 }
 
 .hello-title {
-  @apply text-4xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500;
+  @apply text-4xl font-bold tracking-tighter bg-clip-text text-transparent bg-linear-to-r from-blue-500 to-purple-500;
 }
