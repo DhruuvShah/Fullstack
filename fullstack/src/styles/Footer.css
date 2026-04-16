@@ -1,9 +1,0 @@
-@reference "../index.css";
-
-.footer-container {
-  @apply bg-white/40 dark:bg-black/40 backdrop-blur-xl text-black/60 dark:text-white/60 text-center p-5 w-full border border-black/10 dark:border-white/10 rounded-3xl mt-2 shadow-sm;
-}
-
-.footer-text {
-  @apply text-sm font-medium tracking-wide;
-}

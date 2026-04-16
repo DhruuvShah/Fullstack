@@ -1,0 +1,53 @@
+.counter {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.counter h2 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.counter-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.counter h1 {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+  color: var(--text-main);
+}
+
+.counter button {
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+}
+
+.counter .reset {
+  background: var(--code-bg);
+  color: var(--text-main);
+  align-self: center;
+}

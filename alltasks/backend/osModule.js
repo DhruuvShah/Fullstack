@@ -1,0 +1,17 @@
+const os_module=require('os');
+
+console.log('Operating System Details');
+console.log('Architecture',os_module.arch());
+console.log('Platform Info',os_module.platform());
+console.log('CPU Info',os_module.cpus());
+console.log('Networking Info',os_module.networkInterfaces());
+console.log('Host Details',os_module.hostname());
+if (os_module.availableParallelism) {
+  console.log('Parallelism',os_module.availableParallelism());
+}
+console.log('Home Dir',os_module.homedir());
+console.log('Free Memory',os_module.freemem());
+console.log('Total Memory',os_module.totalmem());
+console.log('Machine Info',os_module.machine ? os_module.machine() : 'N/A');
+console.log('Release Details',os_module.release());
+console.log('Uptime',os_module.uptime());

@@ -1,9 +1,0 @@
-@reference "../index.css";
-
-.digitalclock-container {
-  @apply flex flex-col items-center justify-center py-8 w-full;
-}
-
-.digitalclock-time {
-  @apply text-5xl font-bold tracking-tighter text-blue-600 dark:text-blue-400 tabular-nums;
-}

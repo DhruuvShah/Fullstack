@@ -1,0 +1,63 @@
+.reducer-container {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.reducer-container h2 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.reducer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.reducer-controls input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.reducer-controls button {
+  width: 100%;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+}
+
+.reducer-output {
+  font-family: 'SF Mono', 'Menlo', monospace;
+  font-size: 11px;
+  background: var(--code-bg);
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--text-main);
+  text-align: left;
+  margin: 0;
+}
+
+.reducer-output strong {
+  color: var(--accent);
+}
