@@ -1,0 +1,165 @@
+:root {
+  --black: #0f0f0f;
+  --gray: #3f3f3f;
+  --white: #fff;
+}
+
+.reducer-container {
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 40px;
+  background: linear-gradient(0deg, #141414, #242424);
+  border: 1px solid var(--gray);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: inset 10px 0 10px black;
+  text-align: center;
+}
+
+.reducer-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(180deg, var(--gray), #212121);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.reducer-container h2 {
+  color: var(--white);
+  font-size: 24px;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.reducer-display {
+  font-size: 64px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 30px;
+  padding: 30px;
+  background: linear-gradient(0deg, #0a0a0a, #1a1a1a);
+  border: 1px solid var(--gray);
+  border-radius: 16px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.reducer-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.reducer-buttons button {
+  padding: 15px 25px;
+  border-radius: 12px;
+  border: 1px solid var(--gray);
+  background: linear-gradient(180deg, #f2f2f2, #b3b3b3);
+  box-shadow: inset 0 2px 7px #fff;
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.reducer-buttons button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(180deg, var(--gray), #212121);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.reducer-buttons button:hover {
+  background: linear-gradient(180deg, #ffffff, #d4d4d4);
+  box-shadow: inset 0 2px 10px #fff;
+  transform: translateY(-2px);
+}
+
+.reducer-buttons button:active {
+  transform: translateY(0);
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Special styling for Set to 100 button */
+.reducer-buttons button:nth-child(3),
+.reducer-buttons button:nth-child(4) {
+  grid-column: span 2;
+  background: linear-gradient(0deg, #141414, #242424);
+  color: var(--white);
+  box-shadow: inset 5px 0 5px black;
+}
+
+.reducer-buttons button:nth-child(3):hover,
+.reducer-buttons button:nth-child(4):hover {
+  background: linear-gradient(180deg, var(--gray), #212121);
+  box-shadow: inset 0 2px 7px #ffffff29;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .reducer-container {
+    max-width: calc(100vw - 40px);
+    padding: 30px 20px;
+    margin: 20px auto;
+  }
+
+  .reducer-display {
+    font-size: 52px;
+    padding: 25px;
+    min-height: 100px;
+  }
+
+  .reducer-buttons button {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reducer-container h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .reducer-display {
+    font-size: 42px;
+    padding: 20px;
+    min-height: 80px;
+  }
+
+  .reducer-buttons {
+    gap: 10px;
+  }
+
+  .reducer-buttons button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .reducer-display {
+    font-size: 36px;
+    padding: 15px;
+  }
+
+  .reducer-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .reducer-buttons button:last-child {
+    grid-column: span 1;
+  }
+}
