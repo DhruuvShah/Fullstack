@@ -46,24 +46,30 @@ function Calculator() {
   return (
     <div className="simple">
       <h1>Simple Calculator</h1>
-      <input
-        type="number"
-        placeholder="Enter first number"
-        value={num1}
-        onChange={handleNum1Change}
-      />
-      <input
-        type="number"
-        placeholder="Enter second number"
-        value={num2}
-        onChange={handleNum2Change}
-      />
-      <button onClick={handleAdd}>Add</button>
-      <button onClick={handleSub}>Subtract</button>
-      <button onClick={handleMul}>Multiply</button>
-      <button onClick={handleDiv}>Divide</button>
-      <button onClick={reset}>Reset</button>
-      <p>Result: {result}</p>
+      <div className="simple-calc-inputs">
+        <input
+          type="number"
+          placeholder="First number"
+          value={num1}
+          onChange={handleNum1Change}
+        />
+        <input
+          type="number"
+          placeholder="Second number"
+          value={num2}
+          onChange={handleNum2Change}
+        />
+      </div>
+      <div className="simple-calc-ops">
+        <button className="btn-success" onClick={handleAdd}>＋ Add</button>
+        <button className="btn-danger" onClick={handleSub}>－ Subtract</button>
+        <button className="btn-primary" onClick={handleMul}>✕ Multiply</button>
+        <button className="btn-warning" onClick={handleDiv}>÷ Divide</button>
+        <button onClick={reset}>↺ Reset</button>
+      </div>
+      {result !== "" && (
+        <p className="simple-result">= {result}</p>
+      )}
     </div>
   );
 }

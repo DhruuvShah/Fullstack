@@ -9,7 +9,7 @@ const Navbar = () => {
         end
         className={({ isActive }) => (isActive ? "active" : "")}
       >
-        React
+        ⚛ React
       </NavLink>
       <ul className="nav-links">
         <li></li>
@@ -19,7 +19,7 @@ const Navbar = () => {
             end
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            Unit - 1
+            Unit — 1
           </NavLink>
         </li>
         <li>
@@ -27,7 +27,7 @@ const Navbar = () => {
             to="/Unit-2"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            Unit - 2
+            Unit — 2
           </NavLink>
         </li>
         <li>
@@ -35,7 +35,7 @@ const Navbar = () => {
             to="/Unit-3"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            Unit - 3
+            Unit — 3
           </NavLink>
         </li>
         <li>
@@ -43,7 +43,7 @@ const Navbar = () => {
             to="/Unit-4"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            Unit - 4
+            Unit — 4
           </NavLink>
         </li>
       </ul>

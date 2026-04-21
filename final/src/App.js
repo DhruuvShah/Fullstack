@@ -14,6 +14,16 @@ import Home from "./Components/Home";
 import Counter from "./Components/Counter";
 import Calculator from "./Components/Simple-Calculator";
 import ModernCalculator from "./Components/Modern-Calaculator";
+import UseEffect from "./Components/UseEffect";
+import Clock from "./Components/Clock";
+import Api from "./Components/Api";
+import Text1 from "./Components/Text1";
+import Text2 from "./Components/Text2";
+import AdditionContext from "./Components/AdditionContext";
+import ThemeToggle from "./Components/ThemeToggle";
+import ReactForm from "./Components/ReactForm";
+import StudentRegistration from "./Components/StudentForm";
+import Reducer from "./Components/Reducer";
 
 const App = () => {
   return (
@@ -49,7 +59,17 @@ const App = () => {
                 <>
                   <Counter />
                   <Calculator />
-                  <ModernCalculator/>
+                  <ModernCalculator />
+                  <UseEffect />
+                  <Clock />
+                  <Api />
+                  <Text1 />
+                  <Text2 />
+                  <AdditionContext />
+                  <ThemeToggle />
+                  <ReactForm />
+                  <StudentRegistration />
+                  <Reducer />
                 </>
               }
             />
