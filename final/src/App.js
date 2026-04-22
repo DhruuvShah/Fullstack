@@ -32,7 +32,7 @@ const App = () => {
         <Navbar />
         <div className="container">
           <Routes>
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route
               path="/Unit-1"
               element={
@@ -73,8 +73,6 @@ const App = () => {
                 </>
               }
             />
-            <Route path="/Unit-3" element={<Hello />} />
-            <Route path="/Unit-4" element={<Hello />} />
           </Routes>
         </div>
       </Router>

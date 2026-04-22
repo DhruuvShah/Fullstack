@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <NavLink
-        to="/Home"
+        to="/"
         end
         className={({ isActive }) => (isActive ? "active" : "")}
       >
@@ -28,22 +28,6 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Unit — 2
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/Unit-3"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Unit — 3
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/Unit-4"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Unit — 4
           </NavLink>
         </li>
       </ul>
