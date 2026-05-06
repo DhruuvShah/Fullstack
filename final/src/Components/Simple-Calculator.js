@@ -67,9 +67,7 @@ function Calculator() {
         <button className="btn-warning" onClick={handleDiv}>÷ Divide</button>
         <button onClick={reset}>↺ Reset</button>
       </div>
-      {result !== "" && (
         <p className="simple-result">= {result}</p>
-      )}
     </div>
   );
 }
